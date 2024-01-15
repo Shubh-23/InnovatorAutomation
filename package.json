@@ -1,0 +1,23 @@
+{
+  "name": "Z-sticks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.1",
+    "bookshelf": "^1.2.0",
+    "express": "^4.17.2",
+    "knex": "^1.0.3",
+    "moment": "^2.29.4",
+    "mongoose": "^6.9.1",
+    "mysql": "^2.18.1",
+    "path": "^0.12.7"
+  }
+}
