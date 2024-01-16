@@ -13,6 +13,7 @@ module.exports = {
     // connection: {
     //   database: 'employeeDB',
     //   user:     'root',
+    
     //   password: 'root'
     // },
     pool: {
