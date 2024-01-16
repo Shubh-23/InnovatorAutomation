@@ -13,6 +13,7 @@ class Products{
     }
     getReportDetailsByEmployeeId(req,res){
         const params = req.params
+        console.log(params);
         return salesService.getReportDetailsByEmployeeId(params).then(data=>{
             if(data){
                 return res.json({"errorCode":"200","getReportDetailsByEmployeeId":data,"message":"successfully"})

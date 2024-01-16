@@ -46,6 +46,7 @@ class admin {
         qb.where({ "email": params.email })
         qb.andWhere({ "status": 1 })
     }).fetch().then(async (user) => {
+      console.log(user);
       if (user) {
         // User found, compare hashed passwords
         const isPasswordMatch = await helper.comparePassword(params.password, user.attributes.password);

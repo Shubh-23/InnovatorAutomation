@@ -2,9 +2,12 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const route = require('./router/index')
+const cors = require('cors');
 
 
-
+app.use(cors({
+  Origin: '*'
+}));
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 app.use(route)

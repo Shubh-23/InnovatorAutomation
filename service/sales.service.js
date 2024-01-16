@@ -68,7 +68,7 @@ class Products {
     getReportDetailsByEmployeeId(params) {
         return employeeReportTable.forge().query((qb) => {
             qb.where({ "employee_id": params.employeeId })
-        }).fetchAll().then((data) => {
+        }).fetch().then((data) => {
             console.log(data);
             return data
 
