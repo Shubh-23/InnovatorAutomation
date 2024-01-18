@@ -7,6 +7,9 @@ class Products {
         
         var responseData = []
         try {
+            if (params.login_time == null || params.login_time.length == 0) {
+                return 
+            }
             const loginTime = new Date(params.login_time);
             let logoutTime;
         
