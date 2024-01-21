@@ -5,10 +5,10 @@ module.exports = {
   development: {
     client: 'mysql',
     connection: {
-      host: 'sql11.freesqldatabase.com',
-      database: 'sql11676677',
-      user: 'sql11676677',
-      password: 'lmKPF8lELX'
+      host: 'sql3.freesqldatabase.com',
+      database: 'sql3678620',
+      user: 'sql3678620',
+      password: 'A9413riyIn'
     },
     // connection: {
     //   database: 'employeeDB',
