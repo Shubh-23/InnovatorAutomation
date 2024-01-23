@@ -5,9 +5,10 @@ module.exports = {
   development: {
     client: 'mysql',
     connection: {
-      host: '10xwebsolution.com',
+      // host: '10xwebsolution.com',
+      host: '217.21.84.1',
       database: 'u798504628_iot',
-      user: 'u798504628_bXQar',
+      user: 'u798504628_iot',
       password: '[K4f^vd!'
     },
     // connection: {
