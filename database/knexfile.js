@@ -12,8 +12,8 @@ module.exports = {
       // host: '10xwebsolution.com',
     },
     // connection: {
-    //   database: 'employeeDB',
-    
+      
+      //   database: 'employeeDB',
     //   user:     'root',
 
     //   password: 'root'
