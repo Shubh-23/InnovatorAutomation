@@ -33,6 +33,11 @@ route.post('/report/inserReportDetailsByEmployeeId',SalesController.inserReportD
 route.get('/report/getReportDetailsByEmployeeId/:employeeId',SalesController.getReportDetailsByEmployeeId)   //done
 
 
+route.post('/admin/updateAdminNameById',adminController.updateAdminNameById)   //done
+
+
+
+route.post('/report/deleteReportDetailByEmployeeId',SalesController.deleteReportDetailByEmployeeId)   //done
 // {dateCount:1,dateType:'M'} // for the 1 month
 // {dateCount:6,dateType:'M'} // for the 6 month
 // {dateCount:1,dateType:'y'} // for the 1 year

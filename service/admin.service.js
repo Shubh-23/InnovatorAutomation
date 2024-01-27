@@ -36,7 +36,6 @@ class admin {
 
 
 
-
   async getAdminDetails(params) {
     const hashedPassword = await helper.hashPassword(params.password);
     // Update the params object with the hashed password
@@ -68,6 +67,7 @@ class admin {
         console.log(err);
         return err
       })
+
   }
 
   // getAllDetailsByUserId(params) {
@@ -79,6 +79,39 @@ class admin {
   //     })
   // }
 
+
+
+    async updateAdminNameById(params) {
+      console.log(params);
+      try {
+        // Perform the update query
+        const updatedRows = await adminTable
+          .forge()
+          .where({ id: params.id })
+          .save({ name: params.name }, { method: 'update' });
+    
+        if (updatedRows > 0) {
+          console.log(`Name updated successfully for admin with id ${params.id}`);
+        } else {
+          console.log(`Admin with id ${params.id} not found`);
+        }
+    
+        return updatedRows;
+      } catch (error) {
+        console.error('Error updating name:', error);
+        return null;
+      }
+      try {
+        // Perform the delete query
+        const deletedRows = await adminTable.forge().del();
+    
+        console.log(`${deletedRows} row(s) deleted from the adminTable.`);
+        return deletedRows;
+      } catch (error) {
+        console.error('Error deleting data:', error);
+        return null;
+      }
+    }
 }
 
 module.exports = new admin

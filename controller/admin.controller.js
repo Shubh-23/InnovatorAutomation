@@ -27,6 +27,21 @@ class admin{
         })
     }
 
+
+    updateAdminNameById(req,res){
+        const params = req.body
+        console.log("params");
+        return adminService.updateAdminNameById(params).then(data=>{
+            if(data){
+                return res.json({"statusCode":200,"AllCategories":data,"message":"successfully"})
+            }
+            else{
+                return res.json({"statusCode":500,"UserDetails":{},"message":"something went wrong"})
+            }
+        })
+    }
+
+
  
 }
 
