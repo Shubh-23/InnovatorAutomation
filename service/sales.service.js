@@ -82,8 +82,7 @@ class Products {
 
     deleteReportDetailByEmployeeId(params) {
         return employeeReportTable.forge().query((qb) => {
-            qb.where({ "employee_id": params.employeeId })
-            qb.andWhere({ "login_time": params.login_time })
+            qb.where({ "id": params.id })
             qb.del();
         }).fetchAll().then((data) => {
             console.log(data);
