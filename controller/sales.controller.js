@@ -44,7 +44,7 @@ class Products{
                 return res.json({"errorCode":"200","deleteReportDetailByEmployeeId":params,"message":"Delete Successfully"})
             }
             else{
-                return res.json({"errorCode":"500","getReportDetailsByEmployeeId":{},"message":"something went wrong"})
+                return res.json({"errorCode":"500","deleteReportDetailByEmployeeId":{},"message":"something went wrong"})
             }
         })
     }
