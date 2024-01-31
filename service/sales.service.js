@@ -79,6 +79,7 @@ class Products {
         }).catch((err) => {
             return err
         })
+        
     }
 
     deleteReportDetailByEmployeeId(params) {
