@@ -80,6 +80,7 @@ class Products {
             return err
         })
         
+
     }
 
     deleteReportDetailByEmployeeId(params) {
