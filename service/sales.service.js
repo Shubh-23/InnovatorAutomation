@@ -143,6 +143,22 @@ class Products {
     //     })
     // }
 
+    async getAllEmployeeCounts() {
+        try {
+            const employeeCounts = await employeeReportTable.query((qb) => {
+                qb.select('employee_id')
+                    .sum('reset_count as total_reset_count')
+                    .sum('stick_count as total_stick_count')
+                    .groupBy('employee_id');
+            }).fetchAll();
+    
+            return employeeCounts.toJSON();
+        } catch (err) {
+            console.error(err);
+            throw err;
+        }
+    }
+
 }
 
 module.exports = new Products
