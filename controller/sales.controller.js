@@ -60,6 +60,18 @@ class Products{
             }
         })
     }
+
+    getAllEmployeeCounts(req,res){
+        const params = req.body
+        return salesService.getAllEmployeeCounts(params).then(data=>{
+            if(data){
+                return res.json({"errorCode":"200","SalesbyDateDuration":data,"message":"successfully"})
+            }
+            else{
+                return res.json({"errorCode":"500","SalesbyDateDuration":{},"message":"something went wrong"})
+            }
+        })
+    }
 }
 
                 

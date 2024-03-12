@@ -42,4 +42,6 @@ route.post('/report/deleteReportDetailByEmployeeId',SalesController.deleteReport
 // {dateCount:6,dateType:'M'} // for the 6 month
 // {dateCount:1,dateType:'y'} // for the 1 year
 route.post('/sales/getLastSevenDays',SalesController.getLastSevenDays)   //
+
+route.get('/sales/getAllEmployeeCounts',SalesController.getAllEmployeeCounts)   //
 module.exports = route
