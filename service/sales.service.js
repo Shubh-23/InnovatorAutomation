@@ -159,16 +159,43 @@ class Products {
     //     }
     // }
     
+    // async getAllEmployeeCounts() {
+    //     try {
+    //         const employeeData = await employeeReportTable.query((qb) => {
+    //             qb.select('employee_id','stick_count','reset_count')
+    //                 .max('login_time as max_login_time')
+               
+    //                 .groupBy('employee_id');
+    //         }).fetchAll();
+    
+    //         return employeeData.toJSON();
+    //     } catch (err) {
+    //         console.error(err);
+    //         throw err;
+    //     }
+    // }
     async getAllEmployeeCounts() {
         try {
-            const employeeData = await employeeReportTable.query((qb) => {
-                qb.select('employee_id','stick_count','reset_count')
-                    .max('login_time as max_login_time')
-               
+            const lastLoginData = await employeeReportTable.query((qb) => {
+                qb.select('employee_id')
+                    .max('login_time as last_login_time')
                     .groupBy('employee_id');
             }).fetchAll();
-    
-            return employeeData.toJSON();
+            
+            const employeeData = await Promise.all(lastLoginData.map(async (data) => {
+                const lastLogin = data.get('last_login_time');
+                const employeeId = data.get('employee_id');
+                
+                const employeeInfo = await employeeReportTable.query((qb) => {
+                    qb.where('employee_id', employeeId)
+                        .andWhere('login_time', lastLogin)
+                        .select('employee_id', 'login_time', 'stick_count', 'reset_count');
+                }).fetch();
+                
+                return employeeInfo.toJSON();
+            }));
+            
+            return employeeData;
         } catch (err) {
             console.error(err);
             throw err;
