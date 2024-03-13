@@ -143,22 +143,37 @@ class Products {
     //     })
     // }
 
+    // async getAllEmployeeCounts() {
+    //     try {
+    //         const employeeCounts = await employeeReportTable.query((qb) => {
+    //             qb.select('employee_id')
+    //                 .sum('reset_count as total_reset_count')
+    //                 .sum('stick_count as total_stick_count')
+    //                 .groupBy('employee_id');
+    //         }).fetchAll();
+    
+    //         return employeeCounts.toJSON();
+    //     } catch (err) {
+    //         console.error(err);
+    //         throw err;
+    //     }
+    // }
+    
     async getAllEmployeeCounts() {
         try {
-            const employeeCounts = await employeeReportTable.query((qb) => {
-                qb.select('employee_id')
-                    .sum('reset_count as total_reset_count')
-                    .sum('stick_count as total_stick_count')
+            const employeeData = await employeeReportTable.query((qb) => {
+                qb.select('employee_id','stick_count','reset_count')
+                    .max('login_time as max_login_time')
+               
                     .groupBy('employee_id');
             }).fetchAll();
     
-            return employeeCounts.toJSON();
+            return employeeData.toJSON();
         } catch (err) {
             console.error(err);
             throw err;
         }
     }
-
 }
 
 module.exports = new Products
